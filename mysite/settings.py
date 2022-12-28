@@ -16,9 +16,7 @@ import environ
 
 env = environ.Env()
 # reading .env file
-environ.Env.read_env(
-    DEBUG=(bool, False)
-)
+environ.Env.read_env()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -45,7 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'ckeditor',
+    # 'ckeditor',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
@@ -191,5 +189,13 @@ STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # csrf trusted hosts
 CSRF_TRUSTED_ORIGINS = [
     'https://youtubers-academy.up.railway.app',
-    'localhost:8000',
+    'https://localhost:8000',
+    'https://suraj1089-bug-free-fiesta-949rgxg46vpcpq4j-8000.preview.app.github.dev'
 ]
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True
+
+
+SITE_ID = 1
