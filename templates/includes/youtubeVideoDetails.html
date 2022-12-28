@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+<!--get youtube video details by using video url-->
+
+<div class="container">
+    <h2>Get youtube video details</h2>
+    <form action="{% url 'youtubeVideoDetails' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+
+            <label for="url">Enter youtube video url:</label>
+            <input type="text" class="form-control" id="url" placeholder="Enter youtube video url" name="videoUrl">
+        </div>
+        <button id="videoDetailsSubmit" type="submit" onclick="displayVideoDetails()"
+            class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+<script>
+
+    function displayVideoDetails() {
+        var videoUrl = document.getElementById("url").value;
+        console.log(videoUrl);
+        var videoId = videoUrl.split('v=')[1];
+        var ampersandPosition = videoId.indexOf('&');
+        if (ampersandPosition != -1) {
+            videoId = videoId.substring(0, ampersandPosition);
+        }
+
+        console.log(videoId);
+        var videoDetails = document.getElementById("videoDetails");
+        videoDetails.innerHTML = videoId;
+    }
+
+</script>
+
+{% endblock %}

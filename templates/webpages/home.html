@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+<main class="home">
+  <div class="top" data-slick='{"slidesToShow": 1, "slidesToScroll": 1}'>
+    {% for slide in sliders %}
+    <div class="top-banner">
+      <img src="{{ slide.photo.url }}" alt="" class="img-fluid w-100">
+      <div class="top-container d-flex flex-column pl-5">
+        <h1>
+          {{ slide.headline }}
+        </h1>
+        <p>
+          {{ slide.subtitle }}
+        </p>
+        <div>
+          <button class="btn btn-accent pl-3 pr-3 text-capitalize font-weight-bold">
+            {{slide.button_text}}
+          </button>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+
+
+  </div>
+
+
+
+</main>
+
+{% endblock %}

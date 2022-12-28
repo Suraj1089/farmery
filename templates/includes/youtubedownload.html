@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+
+
+{% block content %}
+
+
+<body style="align-items: center;text-align: center;height: fit-content;border: 3px solid green;">
+    <h2>YT SAVER</h2>
+    <b>
+        <p style="color: coral;">Save your favorite youtube videos for free!!</p>
+    </b>
+    <form method="post" action="">
+        {% csrf_token %}
+        <!-- for fetching the video -->
+        <input type="text" class="form-control" style="width: 75%;margin-left: 150px;" name="given_url" value="{{url}}"
+            placeholder="enter url..">
+        <button id="btn" type="submit" class="btn btn-primary" style="margin-top:20px" name="fetch-vid"
+            value="fetch-vid">Proceed</button>
+
+        <br>
+        <h3>{{vidTitle}}</h3>
+        <img src="{{vidThumbnail}}" />
+        <br>
+
+        <!-- for downloading the video -->
+        {% for x in stream %}
+        {{x.resolution}} <button class="btn btn-secondary" type="submit" name="download-vid" value="{{forloop.counter}}">Download</button>|
+        {% endfor %}
+        <br><br>
+    </form>
+
+    <script type="text/javascript">
+        var btn = document.getElementById('btn');
+        var para = document.getElementById('para_alert');
+        btn.addEventListener('click', function () {
+            btn.innerHTML = '<button type="submit" class="btn btn-danger" type="submit" disabled><span class="spinner-border spinner-border-sm spinnerpos" role="status" aria-hidden="true"></span>Processing video...</button>';
+        });
+
+    </script>
+</body>
+{% endblock content %}

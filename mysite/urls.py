@@ -15,7 +15,20 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from base import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    path('login', views.login, name="login"),
+    path('register', views.register, name="register"),
+    path('logout', views.logout_user, name="logout"),
+    path('dashboard', views.dashboard, name="dashboard"),
+    path('', views.home, name="home"),
+    path('about', views.about, name="about"),
+    path('services', views.services, name="services"),
+    path('contact', views.contact, name="contact"),
+    path('youtubedownload', views.YoutubeDownload.as_view(), name="youtubeDownload"),
+    path('youtubeVideoDetails', views.youtubeVideoDetails,
+         name="youtubeVideoDetails"),
 ]

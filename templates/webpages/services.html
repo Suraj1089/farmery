@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<style>
+  .center {
+    margin: auto;
+    width: 50%;
+    border: 3px solid green;
+    padding: 10px;
+  }
+</style>
+
+<br>
+<br>
+<div id="youtubeVideoDownload" class="center">
+
+  <h1>Youtube Video Download</h1>
+
+  <a href="{% url 'youtubeDownload' %}" class="btn btn-primary">Get Started</a>
+</div>
+<br>
+<br>
+<br>
+<div id="youtubeVideoDetails" class="center">
+  <h1>Get youtube video Details</h1>
+
+  <a href="{% url 'youtubeVideoDetails' %}" class="btn btn-primary">Get Started</a>
+</div>
+<br>
+<br>
+<br>
+<div id="youtubeVideoDetails" class="center">
+  <h1>Get youtuber Details </h1>
+
+  <a href="" class="btn btn-primary">Get Started</a>
+</div>
+
+
+
+
+</script>
+{% endblock %}
