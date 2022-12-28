@@ -20,20 +20,20 @@ def home(request):
         'teams': teams,
 
     }
-    return render(request, 'webpages/home.html', data)
+    return render(request, 'base/home.html', data)
 
 
 def about(request):
-    return render(request, 'webpages/about.html')
+    return render(request, 'base/about.html')
 
 
 def services(request):
-    return render(request, 'webpages/services.html')
+    return render(request, 'base/services.html')
 
 
 def contact(request):
 
-    return render(request, 'webpages/contact.html')
+    return render(request, 'base/contact.html')
 
 
 class YoutubeDownload(View):
@@ -124,7 +124,7 @@ def login(request):
             messages.warning(request, 'invalid credentials')
             return redirect('login')
 
-    return render(request, 'accounts/login.html')
+    return render(request, 'base/login.html')
 
 
 def register(request):
@@ -154,7 +154,7 @@ def register(request):
             messages.warning(request, 'Password do not match')
             return redirect('register')
 
-    return render(request, 'accounts/register.html')
+    return render(request, 'base/register.html')
 
 
 def logout_user(request):
@@ -164,5 +164,5 @@ def logout_user(request):
 
 @login_required(login_url='login')
 def dashboard(request):
-    return render(request, 'accounts/dashboard.html')
+    return render(request, 'base/dashboard.html')
 
