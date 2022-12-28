@@ -12,3 +12,4 @@ djangorestframework==3.14.0
 Pillow==9.3.0
 requests==2.28.1
 whitenoise==6.2.0
+pytube==12.1.2
