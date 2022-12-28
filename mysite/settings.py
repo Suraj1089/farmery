@@ -187,3 +187,9 @@ CHANNEL_LAYERS = {
 }
 
 STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+
+# csrf trusted hosts
+CSRF_TRUSTED_ORIGINS = [
+    'https://youtubers-academy.up.railway.app',
+    'localhost:8000',
+]
